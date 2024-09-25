@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckrudivbllvce"]
+
+[ext_resource type="Texture2D" uid="uid://bxldntufe1qwy" path="res://assets/elementos_grafios/luffy_base.png" id="1_i3y8q"]
+[ext_resource type="Script" path="res://scenes/player_movement.gd" id="1_lu8jo"]
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_lu8jo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 3.14159
+texture = ExtResource("1_i3y8q")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+rotation = 3.14159
+polygon = PackedVector2Array(-118, -142, -77, -213, 54, -215, 104, -146, 107, -95, 56, -34, 84, -2, 83, 99, -81, 102, -85, -8, -62, -28, -123, -98)
