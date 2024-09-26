@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cby8l2dk4jds6"
-path="res://.godot/imported/calabera.png-4592de7ea42ff470e13752e7298cb75e.ctex"
+uid="uid://c02gy4ra3mf2p"
+path="res://.godot/imported/bullet.webp-1de9dc98170c4af6b633301f3b2aa475.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/elementos_grafios/calabera.png"
-dest_files=["res://.godot/imported/calabera.png-4592de7ea42ff470e13752e7298cb75e.ctex"]
+source_file="res://assets/elementos_grafios/bullet.webp"
+dest_files=["res://.godot/imported/bullet.webp-1de9dc98170c4af6b633301f3b2aa475.ctex"]
 
 [params]
 

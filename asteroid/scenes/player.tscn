@@ -1,15 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckrudivbllvce"]
+[gd_scene load_steps=6 format=3 uid="uid://ckrudivbllvce"]
 
 [ext_resource type="Texture2D" uid="uid://bxldntufe1qwy" path="res://assets/elementos_grafios/luffy_base.png" id="1_i3y8q"]
 [ext_resource type="Script" path="res://scenes/player_movement.gd" id="1_lu8jo"]
+[ext_resource type="PackedScene" uid="uid://kp0qb3as44gw" path="res://scenes/screen_bounds_movement.tscn" id="3_k6t0g"]
+[ext_resource type="Script" path="res://scenes/player_shooting.gd" id="4_8e454"]
+[ext_resource type="PackedScene" uid="uid://c7eyrybvpf13j" path="res://scenes/bullet.tscn" id="5_gvfv4"]
 
 [node name="player" type="CharacterBody2D"]
+collision_mask = 4
 script = ExtResource("1_lu8jo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 5)
 rotation = 3.14159
+scale = Vector2(0.70101, 0.608467)
 texture = ExtResource("1_i3y8q")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 rotation = 3.14159
-polygon = PackedVector2Array(-118, -142, -77, -213, 54, -215, 104, -146, 107, -95, 56, -34, 84, -2, 83, 99, -81, 102, -85, -8, -62, -28, -123, -98)
+polygon = PackedVector2Array(0.000319433, -126, -48.9997, -100, -34.9999, -43.0001, -29, 15.9999, 18, 14, 25.0001, -47.9999, 44.0002, -81.9999)
+
+[node name="ScreenBoundsMovement" parent="." node_paths=PackedStringArray("node") instance=ExtResource("3_k6t0g")]
+node = NodePath("..")
+
+[node name="ShootingPoint" type="Node2D" parent="."]
+position = Vector2(63, 0)
+script = ExtResource("4_8e454")
+bullet_scene = ExtResource("5_gvfv4")
