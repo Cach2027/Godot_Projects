@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2faaym5ivfg2"]
+
+[ext_resource type="FontFile" uid="uid://8b18te7s5dds" path="res://scenes/GameOver/Pixeled.ttf" id="1_fvivd"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0628128, 0.0976678, 0.196876, 1)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOver" type="RichTextLabel" parent="Center"]
+custom_minimum_size = Vector2(700, 200)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_fvivd")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[center][wave]GAME OVER"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

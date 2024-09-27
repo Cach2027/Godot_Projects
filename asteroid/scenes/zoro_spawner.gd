@@ -29,6 +29,7 @@ func get_random_position_from_screen_rect() ->Vector2:
 	var y = randf_range(bounds.top, bounds.bottom)
 	
 	return Vector2(x , y)
+	
 func spawn_zoro(size:Utils.ZoroSize, position: Vector2):
 	var zoro = zoro_scene.instantiate() as Zoros
 	get_tree().root.add_child.call_deferred(zoro)
@@ -39,6 +40,6 @@ func spawn_zoro(size:Utils.ZoroSize, position: Vector2):
 func zoro_destroyed(size: int, position: Vector2):
 	
 	if(size < 2):
-		for i in range(2):
+		for i in range(3):
 			spawn_zoro(size,position)
 	

@@ -7,6 +7,7 @@ signal on_zoro_destroyed(size: Zorosize, position: Vector2)
 var image_array = ["res://assets/elementos_grafios/zoro.png", "res://assets/elementos_grafios/zoro_1.png", "res://assets/elementos_grafios/zoro_3.png",  "res://assets/elementos_grafios/zoro_4.png"]
 
 const Utils = preload("res://scenes/Utils/Utils.gd")
+var change_scene = load("res://scenes/GameOver/GameOver.tscn")
 @export var speed = 100
 @export var speed_increment_factor = .3
 
@@ -36,10 +37,14 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		body.queue_free()
 		on_destroy()
+		get_tree().change_scene_to_packed(change_scene)
+		
+
 
 func emit_explosion():
 	explosion_particles.emitting = true
 	explosion_particles.reparent(get_tree().root)
+	
 	
 func on_destroy():
 	emit_explosion()
