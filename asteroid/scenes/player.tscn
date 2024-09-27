@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckrudivbllvce"]
+[gd_scene load_steps=7 format=3 uid="uid://ckrudivbllvce"]
 
 [ext_resource type="Texture2D" uid="uid://bxldntufe1qwy" path="res://assets/elementos_grafios/luffy_base.png" id="1_i3y8q"]
 [ext_resource type="Script" path="res://scenes/player_movement.gd" id="1_lu8jo"]
 [ext_resource type="PackedScene" uid="uid://kp0qb3as44gw" path="res://scenes/screen_bounds_movement.tscn" id="3_k6t0g"]
 [ext_resource type="Script" path="res://scenes/player_shooting.gd" id="4_8e454"]
 [ext_resource type="PackedScene" uid="uid://c7eyrybvpf13j" path="res://scenes/bullet.tscn" id="5_gvfv4"]
+[ext_resource type="AudioStream" uid="uid://d2ryojlff47ha" path="res://assets/sounds/hitting-the-sandbag-131853.mp3" id="6_f7nsd"]
 
 [node name="player" type="CharacterBody2D"]
 collision_mask = 4
@@ -27,3 +28,6 @@ node = NodePath("..")
 position = Vector2(63, 0)
 script = ExtResource("4_8e454")
 bullet_scene = ExtResource("5_gvfv4")
+
+[node name="ShootStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_f7nsd")

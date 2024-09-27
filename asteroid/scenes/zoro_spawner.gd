@@ -3,10 +3,10 @@ extends Node
 class_name ZoroSpawner
 
 @export var zoro_scene: PackedScene
-
+@export var count=4
+@onready var explosion_audio:AudioStreamPlayer2D =$"../ExplosionStreamPlayer"
 const Utils = preload("res://scenes/Utils/Utils.gd")
 
-@export var count=4
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for i in range(count):
@@ -38,7 +38,7 @@ func spawn_zoro(size:Utils.ZoroSize, position: Vector2):
 	zoro.on_zoro_destroyed.connect(zoro_destroyed)
 	
 func zoro_destroyed(size: int, position: Vector2):
-	
+	explosion_audio.play()
 	if(size < 2):
 		for i in range(3):
 			spawn_zoro(size,position)

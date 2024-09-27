@@ -7,6 +7,7 @@ signal on_zoro_destroyed(size: Zorosize, position: Vector2)
 var image_array = ["res://assets/elementos_grafios/zoro.png", "res://assets/elementos_grafios/zoro_1.png", "res://assets/elementos_grafios/zoro_3.png",  "res://assets/elementos_grafios/zoro_4.png"]
 
 const Utils = preload("res://scenes/Utils/Utils.gd")
+
 var change_scene = load("res://scenes/GameOver/GameOver.tscn")
 @export var speed = 100
 @export var speed_increment_factor = .3
@@ -15,7 +16,7 @@ var size = Utils.ZoroSize.BIG
 var direction: Vector2
 @onready var sprite = $Sprite2D
 @onready var explosion_particles = $ExplosionParticles
-
+@onready var lost_audio: AudioStreamPlayer2D = $"GameOverStreamPlayer"
 func _ready():
 	var scaleValue = 1 / (size + 1.0)
 	
@@ -36,11 +37,11 @@ func _process(delta):
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		body.queue_free()
-		on_destroy()
+		lost_audio.play()
 		get_tree().change_scene_to_packed(change_scene)
 		
-
-
+		
+	
 func emit_explosion():
 	explosion_particles.emitting = true
 	explosion_particles.reparent(get_tree().root)
@@ -51,6 +52,7 @@ func on_destroy():
 	queue_free()
 	var new_zoro_size = size + 1
 	on_zoro_destroyed.emit(new_zoro_size, global_position)
+	
 	
 
 func _on_area_entered(area: Area2D) -> void:

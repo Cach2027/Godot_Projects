@@ -6,6 +6,7 @@ var bounds ={}
 func _ready():
 	var rect = get_viewport().get_visible_rect()
 	var camera = get_viewport().get_camera_2d()
+	print(get_parent().name)
 	var zoom = camera.zoom
 	var camera_position = camera.position
 	var size = rect.size / zoom

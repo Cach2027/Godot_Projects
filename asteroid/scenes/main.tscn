@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ck4fno5thu301"]
+[gd_scene load_steps=4 format=3 uid="uid://ck4fno5thu301"]
 
 [ext_resource type="PackedScene" uid="uid://ckrudivbllvce" path="res://scenes/player.tscn" id="1_dn6e3"]
 [ext_resource type="PackedScene" uid="uid://d0g7crsnuq0oa" path="res://scenes/zoro_spawner.tscn" id="2_vlagu"]
+[ext_resource type="AudioStream" uid="uid://cvg3g4812fy00" path="res://assets/sounds/explosion-sound-effect-4-10999.mp3" id="3_ebkqw"]
 
 [node name="Main" type="Node"]
 
@@ -11,3 +12,6 @@ zoom = Vector2(0.5, 0.5)
 [node name="player" parent="." instance=ExtResource("1_dn6e3")]
 
 [node name="ZoroSpawner" parent="." instance=ExtResource("2_vlagu")]
+
+[node name="ExplosionStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ebkqw")
